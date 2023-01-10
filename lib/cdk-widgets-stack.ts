@@ -43,6 +43,7 @@ export class CdkWidgetsStack extends cdk.Stack {
   });
 
   protected readonly provisionedConcurrentExecutions = new Metric({});
+
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
