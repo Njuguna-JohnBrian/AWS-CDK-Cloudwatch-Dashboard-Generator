@@ -1,16 +1,40 @@
-import * as cdk from 'aws-cdk-lib';
-import { Construct } from 'constructs';
+import * as cdk from "aws-cdk-lib";
+import { Dashboard, Metric } from "aws-cdk-lib/aws-cloudwatch";
+import { Construct } from "constructs";
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class CdkWidgetsStack extends cdk.Stack {
+  protected readonly lambdaDashboard: Dashboard;
+
+  protected readonly invocations = new Metric({
+    namespace: "AWS/Lambda",
+    metricName: "Invocations",
+    statistic: "sum",
+  });
+
+  protected readonly duration = new Metric({
+    namespace: "AWS/Lambda",
+    metricName: "Duration",
+    statistic: "min",
+  });
+
+  protected readonly errors = new Metric({
+    namespace: "AWS/Lambda",
+    metricName: "Errors",
+    statistic: "sum",
+  });
+
+  protected readonly throttles = new Metric({
+    namespace: "AWS/Lambda",
+    metricName: "Throttles",
+    statistic: "sum",
+  });
+
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'CdkWidgetsQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
+    this.lambdaDashboard = new Dashboard(this, "Cdk-Widget-Dashboard", {
+      dashboardName: "Cdk-Widget-Dashboard",
+    });
   }
 }
