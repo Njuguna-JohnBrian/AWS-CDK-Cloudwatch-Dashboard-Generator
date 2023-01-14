@@ -42,8 +42,6 @@ export class CdkWidgetsStack extends cdk.Stack {
     statistic: "sum",
   });
 
-  protected readonly;
-
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
