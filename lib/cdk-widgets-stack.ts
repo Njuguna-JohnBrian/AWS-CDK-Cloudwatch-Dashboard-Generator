@@ -38,7 +38,7 @@ export class CdkWidgetsStack extends cdk.Stack {
 
   protected readonly concurrentExecutions = new Metric({
     namespace: "AWS/LAMBDA",
-    metricName: "ConcurrentExecutions",
+    metricName: "ConcrrentExecutions",
     statistic: "sum",
   });
 
