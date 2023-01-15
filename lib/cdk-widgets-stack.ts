@@ -32,7 +32,7 @@ export class CdkWidgetsStack extends cdk.Stack {
 
   protected readonly provisionedConcurrencySpillovers = new Metric({
     namespace: "AWS/LAMBDA",
-    metricName: "ProvisionedConcurrencySpillOver",
+    metricName: "ProvisionedoncurrencySpillOver",
     statistic: "sum",
   });
 
