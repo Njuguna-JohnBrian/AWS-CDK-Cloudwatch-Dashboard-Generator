@@ -30,6 +30,18 @@ export class CdkWidgetsStack extends cdk.Stack {
     statistic: "sum",
   });
 
+  protected readonly provisionedConcurrencySpillovers = new Metric({
+    namespace: "AWS/LAMBDA",
+    metricName: "ProvisionedConcurrencySpillOver",
+    statistic: "sum",
+  });
+
+  protected readonly concurrentExecutions = new Metric({
+    namespace: "AWS/LAMBDA",
+    metricName: "ConcurrentExecutions",
+    statistic: "sum",
+  });
+
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
