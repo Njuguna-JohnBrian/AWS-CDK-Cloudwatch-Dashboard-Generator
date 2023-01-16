@@ -1,5 +1,10 @@
 import * as cdk from "aws-cdk-lib";
-import { Dashboard, GraphWidget, Metric } from "aws-cdk-lib/aws-cloudwatch";
+import {
+  Dashboard,
+  GraphWidget,
+  Metric,
+  TextWidget,
+} from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
@@ -65,8 +70,18 @@ export class CdkWidgetsStack extends cdk.Stack {
     });
   }
 
+  public addTextWidget(widgetTitle: string) {
+    this.lambdaDashboard.addWidgets(
+      new TextWidget({
+        markdown: widgetTitle,
+        width: 24,
+        height: 1,
+      })
+    );
+  }
+
   // add one row to dashboard for each lambda function
-  public addLambda(functionName: string, displayName: string) {
+  public addLambdaMetrics(functionName: string, displayName: string) {
     const dimensions = {
       FunctionName: functionName,
     };
