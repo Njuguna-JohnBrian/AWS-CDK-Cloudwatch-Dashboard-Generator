@@ -4,6 +4,7 @@ import {
   GraphWidget,
   Metric,
   TextWidget,
+  TextWidgetBackground,
 } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
@@ -70,9 +71,10 @@ export class CdkWidgetsStack extends cdk.Stack {
     });
   }
 
-  public addTextWidget(widgetTitle: string) {
+  public addTextWidget(widgetTitle: string, background?: TextWidgetBackground) {
     this.lambdaDashboard.addWidgets(
       new TextWidget({
+        background: background,
         markdown: widgetTitle,
         width: 24,
         height: 1,
