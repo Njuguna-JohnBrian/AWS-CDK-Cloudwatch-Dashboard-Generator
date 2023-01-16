@@ -3,6 +3,9 @@ import { Dashboard, GraphWidget, Metric } from "aws-cdk-lib/aws-cloudwatch";
 import { Construct } from "constructs";
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
+export interface LambdaDashboardsStackProps extends cdk.StackProps {
+  dashboardName: string;
+}
 export class CdkWidgetsStack extends cdk.Stack {
   protected readonly lambdaDashboard: Dashboard;
 
@@ -54,7 +57,7 @@ export class CdkWidgetsStack extends cdk.Stack {
     statistic: "sum",
   });
 
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props: LambdaDashboardsStackProps) {
     super(scope, id, props);
 
     this.lambdaDashboard = new Dashboard(this, "Cdk-Widget-Dashboard", {
