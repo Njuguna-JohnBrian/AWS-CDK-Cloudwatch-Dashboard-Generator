@@ -57,5 +57,20 @@ export class CdkWidgetsStack extends cdk.Stack {
   }
 
   // add one row to dashboard for each lambda function
-  public addLambda(functionName: string, displayName: string) {}
+  public addLambda(functionName: string, displayName: string) {
+    const dimensions = {
+      FunctionName: functionName,
+    };
+
+    this.lambdaDashboard.addWidgets(
+      new GraphWidget({
+        title: displayName + " Invocations",
+        left: [
+          this.invocations.with({
+            dimensionsMap: dimensions,
+          }),
+        ],
+      })
+    );
+  }
 }
