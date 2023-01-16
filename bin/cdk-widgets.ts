@@ -10,17 +10,23 @@ const lambdaDashboardStack = new CdkWidgetsStack(app, "SampleLambdaDashboard", {
   dashboardName: "SampleLambdaDashboard",
 });
 
-lambdaDashboardStack.addLambda(
+lambdaDashboardStack.addTextWidget("ApiGateway Lambda Metrics");
+
+lambdaDashboardStack.addLambdaMetrics(
   "SmkStack-SMKAPIGATEWAYLAMBDA33DE5576-hTstAu4UXHBP",
   "ApiGateway"
 );
 
-lambdaDashboardStack.addLambda(
+lambdaDashboardStack.addTextWidget("Procore Lambda Metrics");
+
+lambdaDashboardStack.addLambdaMetrics(
   "SmkStack-ProcoreWebhookLambdaFunction7E4A366E-DIzvPop2d57D",
   "ProcoreLambdaFunction"
 );
 
-lambdaDashboardStack.addLambda(
+lambdaDashboardStack.addTextWidget("Intacct Lambda Metrics");
+
+lambdaDashboardStack.addLambdaMetrics(
   "SmkStack-IntacctWebhookLambdaFunction4778A09F-nEUv6A66ANcs",
   "IntacctLambdaFunction"
 );
