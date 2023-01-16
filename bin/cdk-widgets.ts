@@ -1,21 +1,26 @@
 #!/usr/bin/env node
-import 'source-map-support/register';
-import * as cdk from 'aws-cdk-lib';
-import { CdkWidgetsStack } from '../lib/cdk-widgets-stack';
+import "source-map-support/register";
+import * as cdk from "aws-cdk-lib";
+import { CdkWidgetsStack } from "../lib/cdk-widgets-stack";
 
 const app = new cdk.App();
-new CdkWidgetsStack(app, 'CdkWidgetsStack', {
-  /* If you don't specify 'env', this stack will be environment-agnostic.
-   * Account/Region-dependent features and context lookups will not work,
-   * but a single synthesized template can be deployed anywhere. */
+// new CdkWidgetsStack(app, "CdkWidgetsStack", {});
 
-  /* Uncomment the next line to specialize this stack for the AWS Account
-   * and Region that are implied by the current CLI configuration. */
-  // env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
-
-  /* Uncomment the next line if you know exactly what Account and Region you
-   * want to deploy the stack to. */
-  // env: { account: '123456789012', region: 'us-east-1' },
-
-  /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
+const lambdaDashboardStack = new CdkWidgetsStack(app, "SampleLambdaDashboard", {
+  dashboardName: "SampleLambdaDashboard",
 });
+
+lambdaDashboardStack.addLambda(
+  "SmkStack-SMKAPIGATEWAYLAMBDA33DE5576-hTstAu4UXHBP",
+  "ApiGateway"
+);
+
+lambdaDashboardStack.addLambda(
+  "SmkStack-ProcoreWebhookLambdaFunction7E4A366E-DIzvPop2d57D",
+  "ProcoreLambdaFunction"
+);
+
+lambdaDashboardStack.addLambda(
+  "SmkStack-IntacctWebhookLambdaFunction4778A09F-nEUv6A66ANcs",
+  "IntacctLambdaFunction"
+);
