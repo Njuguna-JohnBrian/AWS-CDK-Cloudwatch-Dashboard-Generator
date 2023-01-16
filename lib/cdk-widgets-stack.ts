@@ -98,7 +98,7 @@ export class CdkWidgetsStack extends cdk.Stack {
       }),
 
       new GraphWidget({
-        title: displayName + "Errors",
+        title: displayName + " Errors",
         left: [
           this.errors.with({
             dimensionsMap: dimensions,
@@ -109,6 +109,23 @@ export class CdkWidgetsStack extends cdk.Stack {
           }),
 
           this.provisionedConcurrencySpillovers.with({
+            dimensionsMap: dimensions,
+          }),
+        ],
+      }),
+
+      new GraphWidget({
+        title: displayName + " ConcurrentExecutions",
+        right: [
+          this.concurrentExecutions.with({
+            dimensionsMap: dimensions,
+          }),
+
+          this.provisionedConcurrentExecutions.with({
+            dimensionsMap: dimensions,
+          }),
+
+          this.provisionedConcurrencyUtilization.with({
             dimensionsMap: dimensions,
           }),
         ],
