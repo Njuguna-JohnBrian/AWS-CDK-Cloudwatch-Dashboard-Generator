@@ -78,13 +78,32 @@ export class CdkWidgetsStack extends cdk.Stack {
           this.duration.with({
             dimensionsMap: dimensions,
           }),
+
           this.duration.with({
             dimensionsMap: dimensions,
             statistic: "avg",
           }),
+
           this.duration.with({
             dimensionsMap: dimensions,
             statistic: "max",
+          }),
+        ],
+      }),
+
+      new GraphWidget({
+        title: displayName + "Errors",
+        left: [
+          this.errors.with({
+            dimensionsMap: dimensions,
+          }),
+
+          this.throttles.with({
+            dimensionsMap: dimensions,
+          }),
+
+          this.provisionedConcurrencySpillovers.with({
+            dimensionsMap: dimensions,
           }),
         ],
       })
