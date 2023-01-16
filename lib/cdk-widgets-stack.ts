@@ -70,6 +70,23 @@ export class CdkWidgetsStack extends cdk.Stack {
             dimensionsMap: dimensions,
           }),
         ],
+      }),
+
+      new GraphWidget({
+        title: displayName + " Duration",
+        left: [
+          this.duration.with({
+            dimensionsMap: dimensions,
+          }),
+          this.duration.with({
+            dimensionsMap: dimensions,
+            statistic: "avg",
+          }),
+          this.duration.with({
+            dimensionsMap: dimensions,
+            statistic: "max",
+          }),
+        ],
       })
     );
   }
