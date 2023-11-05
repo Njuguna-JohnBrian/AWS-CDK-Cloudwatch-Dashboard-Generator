@@ -10,7 +10,7 @@ export class EmailStack extends Stack {
 
     const emailTopic = new sns.Topic(this, "Email-Topic");
     emailTopic.addSubscription(
-      new subscriptions.EmailSubscription("njugunajb96@gmail.com")
+      new subscriptions.EmailSubscription("email@email.com")
     );
   }
 }

@@ -21,26 +21,26 @@ lambdaDashboardStack.addTextWidget(
 );
 
 lambdaDashboardStack.addLambdaMetrics(
-  "SmkStack-SMKAPIGATEWAYLAMBDA33DE5576-hTstAu4UXHBP",
+  "APIGATEWAYLAMBDA33DE5576-hTstAu4UXHBP",
   "ApiGateway"
 );
 
 lambdaDashboardStack.addTextWidget(
-  "Procore Lambda Metrics",
+  "Lambda Metrics",
   TextWidgetBackground.SOLID
 );
 
 lambdaDashboardStack.addLambdaMetrics(
-  "SmkStack-ProcoreWebhookLambdaFunction7E4A366E-DIzvPop2d57D",
-  "ProcoreLambdaFunction"
+  "WebhookLambdaFunction7E4A366E-DIzvPop2d57D",
+  "LambdaFunction"
 );
 
 lambdaDashboardStack.addTextWidget(
-  "Intacct Lambda Metrics",
+  "Lambda Metrics",
   TextWidgetBackground.SOLID
 );
 
 lambdaDashboardStack.addLambdaMetrics(
-  "SmkStack-IntacctWebhookLambdaFunction4778A09F-nEUv6A66ANcs",
-  "IntacctLambdaFunction"
+  "WebhookLambdaFunction4778A09F-nEUv6A66ANcs",
+  "LambdaFunction"
 );
